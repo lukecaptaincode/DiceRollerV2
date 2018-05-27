@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dice Roll V2</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>Wound counter</ion-card-header>
+    <ion-card-content class="pure-g">
+      <ion-item class="pure-u-8-24">
+        <ion-label color="primary">Character Name:</ion-label>
+        <ion-input type="text" [(ngModel)]="characterName_input"></ion-input>
+      </ion-item>
+      <ion-item class="pure-u-8-24">
+        <ion-label color="primary">Wound Amount:</ion-label>
+        <ion-input type="number" [(ngModel)]="woundAmount_input"></ion-input>
+      </ion-item>
+      <ion-item class="pure-u-8-24">
+        <button ion-button secondary (click)='add()'>Add</button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+      <ion-item class="pure-g" *ngFor="let character of Characters; let i = index" [attr.data-index]="i">
+        <div *ngIf="character?.character?.length">
+          <h1>{{character.character}}</h1>
+          <h1>{{character.wound}}</h1>
+          <button ion-button secondary (click)='wound(i)'>-</button>
+          <button ion-button secondary (click)='delete(i)'>Del</button>
+        </div>
+      </ion-item>
+</ion-content>

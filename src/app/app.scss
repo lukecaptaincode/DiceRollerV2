@@ -14,3 +14,24 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+//IMPORT ALL FILES HERE
+@import "sass/pure-all";
+ion-app{
+    font-size: $font-size-base;
+
+    ion-label,ion-card,i,button{
+        font-family: $ubuntu-font!important;
+        font-style: normal;
+    }
+    ion-navbar{
+        font-family: $dohyeon-font;
+    }
+    .scroll-content{
+        font-family: $ubuntu-font!important;
+    }
+    h1{
+        font-family: $ubuntu-font!important;
+        letter-spacing: 2px;
+    }
+}
+@import "../pages/home/home";

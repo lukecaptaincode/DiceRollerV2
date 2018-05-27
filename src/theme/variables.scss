@@ -4,7 +4,10 @@
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
-
+@import url($font-path+'DoHyeon-Regular.ttf');
+@import url($font-path+'Ubuntu-Regular.ttf');
+$ubuntu-font: 'Ubuntu', sans-serif;
+$dohyeon-font: 'Do Hyeon', sans-serif;
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
@@ -41,6 +44,20 @@ $colors: (
   dark:       #222
 );
 
+/* HSL */
+$color1: hsla(0%, 0%, 21%, 1);
+$color2: hsla(201%, 100%, 64%, 1);
+$color3: hsla(208%, 37%, 48%, 1);
+$color4: hsla(212%, 72%, 26%, 1);
+$color5: hsla(213%, 65%, 33%, 1);
+
+/* RGB */
+$color1: rgba(53, 53, 53, 1);
+$color2: rgba(72, 190, 255, 1);
+$color3: rgba(77, 126, 168, 1);
+$color4: rgba(19, 64, 116, 1);
+$color5: rgba(29, 78, 137, 1);
+
 
 // App iOS Variables
 // --------------------------------------------------
@@ -70,7 +87,7 @@ $colors: (
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.default";
+@import "ionic.theme.dark";
 
 
 // Ionicons
@@ -83,6 +100,7 @@ $colors: (
 
 // Fonts
 // --------------------------------------------------
-
+//Variables and globals
+$font-size-base: 16px!important; 
 @import "roboto";
 @import "noto-sans";

@@ -3,16 +3,100 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Dice Roll V2</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content padding class="pure-g">
+  <div class="pure-u-12-24">
+    <ion-card class="roller-card">
+      <ion-card-content class="pure-g">
+        <div class="pure-u-12-24">
+          <ion-item>
+            <ion-label color="primary">No. of dice:</ion-label>
+            <ion-input type="number" [value]="diceAmount_input" [(ngModel)]="diceAmount_input"></ion-input>
+          </ion-item>
+        </div>
+        <div class="pure-u-12-24">
+          <ion-item>
+            <ion-label color="primary">No. of sides:</ion-label>
+            <ion-input type="number" [value]="sideAmount_input" [(ngModel)]="sideAmount_input"></ion-input>
+          </ion-item>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="roller-card">
+      <ion-card-content class="pure-g">
+        <div class="pure-u-12-24">
+          <ion-item>
+            <ion-label color="primary">Sort by:</ion-label>
+            <ion-input type="number" [value]="" [(ngModel)]="sort_input"></ion-input>
+          </ion-item>
+        </div>
+        <div class="pure-u-12-24">
+          <button ion-button secondary (click)='sort()'>Sort</button>
+          <button ion-button secondary (click)='reset()'>
+            <ion-icon name="refresh"></ion-icon>
+          </button>
+        </div>
+        <ion-list class="pure-g" radio-group [(ngModel)]="result_filter">
+          <div class="pure-u-1-5">
+            <ion-item>
+              <ion-label>></ion-label>
+              <ion-radio item-left value=">"></ion-radio>
+            </ion-item>
+          </div>
+          <div class="pure-u-1-5">
+            <ion-item>
+              <ion-label>
+                <</ion-label>
+                  <ion-radio item-left value="<"></ion-radio>
+            </ion-item>
+          </div>
+          <div class="pure-u-1-5">
+            <ion-item>
+              <ion-label>=</ion-label>
+              <ion-radio item-left value="=="></ion-radio>
+            </ion-item>
+          </div>
+          <div class="pure-u-1-5">
+            <ion-item>
+              <ion-label>
+                <=</ion-label>
+                  <ion-radio item-left value="<="></ion-radio>
+            </ion-item>
+          </div>
+          <div class="pure-u-1-5">
+            <ion-item>
+              <ion-label>>=</ion-label>
+              <ion-radio item-left value=">="></ion-radio>
+            </ion-item>
+          </div>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="roller-card">
+      <ion-card-content class="pure-g">
+        <div class="pure-u-12-24">
+          <button ion-button secondary (click)='roll()'>Roll</button>
+          <button ion-button secondary (click)='clear()'>
+            <ion-icon name="refresh"></ion-icon>
+          </button>
+        </div>
+        <div class="pure-12-24">
+          <h1>{{sortResults_label}}</h1>
+        </div>
+      </ion-card-content>
+    </ion-card>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-card>
+      <ion-card-header >Results</ion-card-header>
+      <ion-list>
+        <ol ion-item *ngFor="let die of dice">
+          <li>{{die}}</li>
+        </ol>
+      </ion-list>
+    </ion-card>
+  </div>
 </ion-content>
