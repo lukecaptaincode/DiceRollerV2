@@ -10,19 +10,25 @@ import {
     Characters : any = [{}];
     characterName_input;
     woundAmount_input;
+
     constructor(private storage: Storage){
       this.Characters.lenght = 0;
       storage.get('character').then((val)=>{
         var parse = JSON.parse(val);
         var c = [];
         var w = [];
-        parse.forEach(function(el){
-          w.push(el.wound);
-          c.push(el.character);
-        });
-        for(var i =0;i<c.length;i++){
-          this.Characters.push({character: c[i], wound: w[i]});
-        }
+        if(parse != null){
+          parse.forEach(function(el){
+            if(el.wound != null || el.wound != "" || el.wound != " " || el.character != null 
+            || el.character != "" || el.character != " "){
+              w.push(el.wound);
+              c.push(el.character);
+            }
+          });
+          for(var i =0;i<c.length;i++){
+            this.Characters.push({character: c[i], wound: w[i]});
+          }
+       }
       });
     }
     wound(i) {
@@ -30,9 +36,16 @@ import {
     }
     delete(i){
       this.Characters.splice(i,1);
+      this.store();
+    }
+    store(){
+      this.storage.set('character', JSON.stringify(this.Characters));
     }
     add(){
       this.Characters.push({character:this.characterName_input,wound:this.woundAmount_input});
-      this.storage.set('character', JSON.stringify(this.Characters));
+      this.store();
+    }
+    clear(){
+      this.storage.clear();
     }
   }

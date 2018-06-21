@@ -20,15 +20,16 @@
       </ion-item>
       <ion-item class="pure-u-8-24">
         <button ion-button secondary (click)='add()'>Add</button>
+        <button ion-button secondary (click)='clear()'>Clear</button>
       </ion-item>
     </ion-card-content>
   </ion-card>
-      <ion-item class="pure-g" *ngFor="let character of Characters; let i = index" [attr.data-index]="i">
+      <ng-container class="pure-g" *ngFor="let character of Characters; let i = index" [attr.data-index]="i">
         <div *ngIf="character?.character?.length">
           <h1>{{character.character}}</h1>
           <h1>{{character.wound}}</h1>
           <button ion-button secondary (click)='wound(i)'>-</button>
           <button ion-button secondary (click)='delete(i)'>Del</button>
         </div>
-      </ion-item>
+      </ng-container>
 </ion-content>

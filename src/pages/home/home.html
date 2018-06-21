@@ -7,96 +7,92 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="pure-g">
-  <div class="pure-u-12-24">
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-5>
+        <ion-row>
+          <ion-col col-md-6>
+            <ion-card class="roller-card">
+              <ion-card-content>
+                <ion-item>
+                  <ion-label color="primary">No. of dice:</ion-label>
+                  <ion-input type="number" [value]="diceAmount_input" [(ngModel)]="diceAmount_input"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label color="primary">No. of sides:</ion-label>
+                  <ion-input type="number" [value]="sideAmount_input" [(ngModel)]="sideAmount_input"></ion-input>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col col-md-6>
+            <ion-card class="roller-card">
+              <ion-card-content>
+                <button ion-button secondary (click)='roll()'>Roll</button>
+                <button ion-button secondary (click)='clear()'>
+                  <ion-icon name="refresh"></ion-icon>
+                </button>
+                <h1>{{sortResults_label}}</h1>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col>
+        <ion-card class="roller-card">
+          <ion-card-content>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label color="primary">Sort by:</ion-label>
+                  <ion-input type="number" [value]="" [(ngModel)]="sort_input"></ion-input>
+                </ion-item>
+                <button ion-button secondary (click)='sort()'>Sort</button>
+                <button ion-button secondary (click)='reset()'>
+                  <ion-icon name="refresh"></ion-icon>
+                </button>
+              </ion-col>
+              <ion-col>
+                <ion-list radio-group [(ngModel)]="result_filter">
+                  <ion-row>
+                    <ion-item col-6>
+                      <ion-label>></ion-label>
+                      <ion-radio value=">"></ion-radio>
+                    </ion-item>
+                    <ion-item col-6>
+                      <ion-label>
+                        <</ion-label>
+                          <ion-radio value="<"></ion-radio>
+                    </ion-item>
+                    <ion-item col-6>
+                      <ion-label>=</ion-label>
+                      <ion-radio value="=="></ion-radio>
+                    </ion-item>
+                    <ion-item col-6>
+                      <ion-label>
+                        <=</ion-label>
+                          <ion-radio value="<="></ion-radio>
+                    </ion-item>
+                    <ion-item col-6>
+                      <ion-label>>=</ion-label>
+                      <ion-radio value=">="></ion-radio>
+                    </ion-item>
+                  </ion-row>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
     <ion-card class="roller-card">
-      <ion-card-content class="pure-g">
-        <div class="pure-u-12-24">
-          <ion-item>
-            <ion-label color="primary">No. of dice:</ion-label>
-            <ion-input type="number" [value]="diceAmount_input" [(ngModel)]="diceAmount_input"></ion-input>
-          </ion-item>
-        </div>
-        <div class="pure-u-12-24">
-          <ion-item>
-            <ion-label color="primary">No. of sides:</ion-label>
-            <ion-input type="number" [value]="sideAmount_input" [(ngModel)]="sideAmount_input"></ion-input>
-          </ion-item>
-        </div>
-      </ion-card-content>
-    </ion-card>
-    <ion-card class="roller-card">
-      <ion-card-content class="pure-g">
-        <div class="pure-u-12-24">
-          <ion-item>
-            <ion-label color="primary">Sort by:</ion-label>
-            <ion-input type="number" [value]="" [(ngModel)]="sort_input"></ion-input>
-          </ion-item>
-        </div>
-        <div class="pure-u-12-24">
-          <button ion-button secondary (click)='sort()'>Sort</button>
-          <button ion-button secondary (click)='reset()'>
-            <ion-icon name="refresh"></ion-icon>
-          </button>
-        </div>
-        <ion-list class="pure-g" radio-group [(ngModel)]="result_filter">
-          <div class="pure-u-1-5">
-            <ion-item>
-              <ion-label>></ion-label>
-              <ion-radio item-left value=">"></ion-radio>
-            </ion-item>
-          </div>
-          <div class="pure-u-1-5">
-            <ion-item>
-              <ion-label>
-                <</ion-label>
-                  <ion-radio item-left value="<"></ion-radio>
-            </ion-item>
-          </div>
-          <div class="pure-u-1-5">
-            <ion-item>
-              <ion-label>=</ion-label>
-              <ion-radio item-left value="=="></ion-radio>
-            </ion-item>
-          </div>
-          <div class="pure-u-1-5">
-            <ion-item>
-              <ion-label>
-                <=</ion-label>
-                  <ion-radio item-left value="<="></ion-radio>
-            </ion-item>
-          </div>
-          <div class="pure-u-1-5">
-            <ion-item>
-              <ion-label>>=</ion-label>
-              <ion-radio item-left value=">="></ion-radio>
-            </ion-item>
-          </div>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-    <ion-card class="roller-card">
-      <ion-card-content class="pure-g">
-        <div class="pure-u-12-24">
-          <button ion-button secondary (click)='roll()'>Roll</button>
-          <button ion-button secondary (click)='clear()'>
-            <ion-icon name="refresh"></ion-icon>
-          </button>
-        </div>
-        <div class="pure-12-24">
-          <h1>{{sortResults_label}}</h1>
-        </div>
-      </ion-card-content>
-    </ion-card>
-
-
-    <ion-card>
-      <ion-card-header >Results</ion-card-header>
+      <ion-card-header>Results</ion-card-header>
       <ion-list>
         <ol ion-item *ngFor="let die of dice">
           <li>{{die}}</li>
         </ol>
       </ion-list>
     </ion-card>
-  </div>
+  </ion-grid>
 </ion-content>
