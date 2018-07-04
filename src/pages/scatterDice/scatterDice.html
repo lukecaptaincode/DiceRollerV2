@@ -1,18 +1,19 @@
 <ion-header>
-        <ion-navbar>
-          <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-          </button>
-          <ion-title>Dice Roll V2</ion-title>
-        </ion-navbar>
-      </ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dice Roll V2</ion-title>
+  </ion-navbar>
+</ion-header>
 <ion-content padding>
-    <div>
-        <div id="scatterDiceContainer">
-            <h1 id="scatter">X</h1>
-        </div>
+  <div>
+    <div id="scatterDiceContainer">
+      <h1 id="scatter">X</h1>
     </div>
-<ion-item>
+  </div>
+  <ion-item>
     <button ion-button secondary (click)='scatter()'>Scatter</button>
-</ion-item>
+    <h2 id="scatterDistance"></h2>
+  </ion-item>
 </ion-content>

@@ -10,9 +10,9 @@
 <ion-content padding>
   <ion-grid>
     <ion-row>
-      <ion-col col-5>
+      <ion-col col-12 col-md-6>
         <ion-row>
-          <ion-col col-md-6>
+          <ion-col col-12 col-lg-6>
             <ion-card class="roller-card">
               <ion-card-content>
                 <ion-item>
@@ -26,7 +26,7 @@
               </ion-card-content>
             </ion-card>
           </ion-col>
-          <ion-col col-md-6>
+          <ion-col col-12 col-lg-6>
             <ion-card class="roller-card">
               <ion-card-content>
                 <button ion-button secondary (click)='roll()'>Roll</button>
@@ -39,11 +39,11 @@
           </ion-col>
         </ion-row>
       </ion-col>
-      <ion-col>
+      <ion-col col-12 col-md-6>
         <ion-card class="roller-card">
           <ion-card-content>
             <ion-row>
-              <ion-col>
+              <ion-col col-md-6 col-12>
                 <ion-item>
                   <ion-label color="primary">Sort by:</ion-label>
                   <ion-input type="number" [value]="" [(ngModel)]="sort_input"></ion-input>
@@ -53,28 +53,28 @@
                   <ion-icon name="refresh"></ion-icon>
                 </button>
               </ion-col>
-              <ion-col>
+              <ion-col col-md-6 col-12>
                 <ion-list radio-group [(ngModel)]="result_filter">
                   <ion-row>
-                    <ion-item col-6>
+                    <ion-item col-12 col-md-6>
                       <ion-label>></ion-label>
                       <ion-radio value=">"></ion-radio>
                     </ion-item>
-                    <ion-item col-6>
+                    <ion-item col-12 col-md-6>
                       <ion-label>
                         <</ion-label>
                           <ion-radio value="<"></ion-radio>
                     </ion-item>
-                    <ion-item col-6>
+                    <ion-item col-12 col-md-6>
                       <ion-label>=</ion-label>
                       <ion-radio value="=="></ion-radio>
                     </ion-item>
-                    <ion-item col-6>
+                    <ion-item col-12 col-md-6>
                       <ion-label>
                         <=</ion-label>
                           <ion-radio value="<="></ion-radio>
                     </ion-item>
-                    <ion-item col-6>
+                    <ion-item col-12 col-md-6>
                       <ion-label>>=</ion-label>
                       <ion-radio value=">="></ion-radio>
                     </ion-item>
